@@ -1,0 +1,17 @@
+弊社Developer Dashboard利用手順
+
+１．ConsumerがNAVITIMEJAPAN提供MAPApi（他APIは別）のSubscribeをする
+２．Consumer自身が、プログラムとしてNAVITIMEJAPANの提供するMAPを呼び出すためのプログラムを作成する。
+３．プログラムを作成するに不可欠な要素をMAPAPIのテストページのコードスニペットより自身の作成しているプログラム言語にあったものを選び利用する。
+
+NavitimeAPI仕様書
+ここに、呼び出すために必要な情報を入力する箇所があることを留意する。
+＊SID　RequestCodes　SignatureKey　Host名　Value
+　必要な認証情報はNAVITIMEの仕様書に記述されている
+　すべてのAPIはレスポンスとしてJSONで行われる。
+　RapidAPIから呼び出すことは問題がないことがわかる
+唯一の問題は、MAPAPIで、サーバーから呼ばれるものではなく、返信でかえされるものは、PNGファイルでありJSONではない。
+TOOLを利用してーこの場合はPostmanを利用して、NavitimeのAPIを開いてテストを行うｋとができる。例えば郵便番号APIでは郵便番号だけが必要不可欠なデータとなり、他のコードは不要だと書いてある。ただしこれらをRapidAPIで呼び出すにあたっては、以下の3種類のもの、offset"limit"items"が必要となると書かれている。
+テストとして、Postmanで必要となる、Keyである、郵便番号、リクエストコードと鍵を入力してテストをする。レスポンスを得られたら、取得したレスポンスを確認する。最初にNavitimeの仕様書を確認する。
+RapidAPIKEY－SignatureKeyでありこのテスト時点では不要
+テストをして戻ってきた
